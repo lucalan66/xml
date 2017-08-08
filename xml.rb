@@ -5,8 +5,10 @@ require 'nokogiri'
 doc = Nokogiri::HTML(open("https://www.myvoicecomm.com/portal/api/itemget_form.php?api=InventoryRequest&AccountNumber=13358&AccountPassword=485zmlan01&CategoryID=&Status=1&Format=XML"))
 
 doc.css('item').each do |item|
+	p item.css('desc').text
 	p item.css('sku').text
 	p item.css('onhand').text.to_i
+	p item.css('cost').text.to_f
 end
 
 # hash = {}
